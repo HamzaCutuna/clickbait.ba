@@ -39,11 +39,11 @@ export default function RootLayout({
         <meta property="og:description" content="Web dizajn Sarajevo i BiH - Izrada modernih, responzivnih web stranica i SEO optimizacija za bolje Google pozicije. Kontaktirajte nas za besplatnu konsultaciju!" />
         <meta property="og:url" content="https://www.clickbait.ba/" />
         <meta property="og:site_name" content="Clickbait" />
-        <meta property="og:image" content="/images/logo.png" />
+        <meta property="og:image" content="/images/cover.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Clickbait - Web dizajn Sarajevo | Moderne web stranice BiH | SEO agencija" />
         <meta name="twitter:description" content="Web dizajn Sarajevo i BiH - Izrada modernih, responzivnih web stranica i SEO optimizacija za bolje Google pozicije. Kontaktirajte nas za besplatnu konsultaciju!" />
-        <meta name="twitter:image" content="/images/logo.png" />
+        <meta name="twitter:image" content="/images/cover.png" />
         <link rel="canonical" href="https://www.clickbait.ba/" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
