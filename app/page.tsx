@@ -60,12 +60,6 @@ export default function Home() {
                     <span className="bg-gradient-to-r from-[#0B3C41] to-[#00BE57] bg-clip-text text-transparent">
                       web stranice
                     </span>
-                    <motion.div
-                      initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 1 }}
-                      transition={{ duration: 0.8, delay: 0.5 }}
-                      className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 rounded-full"
-                    />
                   </span>{" "}
                   koje donose rezultate
                 </h1>
@@ -330,22 +324,26 @@ export default function Home() {
                   {
                     title: "Dokazano iskustvo",
                     description: "Više od 150 uspješno završenih projekata u različitim industrijama.",
-                    icon: AcademicCapIcon
+                    icon: AcademicCapIcon,
+                    color: "from-blue-500 to-cyan-500"
                   },
                   {
                     title: "Personalizovani pristup",
                     description: "Svaki projekt prilagođavamo specifičnim potrebama i ciljevima klijenta.",
-                    icon: SparklesIcon
+                    icon: SparklesIcon,
+                    color: "from-green-500 to-emerald-500"
                   },
                   {
                     title: "Kontinuirana podrška",
                     description: "Pružamo 24/7 podršku i redovno ažuriramo vaše stranice.",
-                    icon: LockClosedIcon
+                    icon: LockClosedIcon,
+                    color: "from-red-500 to-pink-500"
                   },
                   {
                     title: "Transparentnost",
                     description: "Redovni izvještaji o napretku i jasna komunikacija kroz cijeli proces.",
-                    icon: GlobeAltIcon
+                    icon: GlobeAltIcon,
+                    color: "from-orange-500 to-yellow-500"
                   }
                 ].map((feature, index) => (
                   <FeatureCard 
@@ -353,7 +351,8 @@ export default function Home() {
                     icon={feature.icon} 
                     title={feature.title} 
                     description={feature.description} 
-                    delay={index * 0.1} 
+                    delay={index * 0.1}
+                    color={feature.color}
                   />
                 ))}
               </div>
