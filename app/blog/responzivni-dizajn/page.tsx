@@ -6,6 +6,7 @@ import { CalendarIcon, PersonIcon, ArrowLeftIcon, StarIcon, BarChartIcon, CopyIc
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { useState } from "react";
+import { CTASection } from "@/app/components/CTASection";
 
 // SVGs for Facebook and WhatsApp
 const FacebookIcon = (props: React.ImgHTMLAttributes<HTMLImageElement>) => (
@@ -170,7 +171,7 @@ export default function ResponzivniDizajn() {
               </article>
             </div>
             <div className="lg:col-span-1">
-              <div className="sticky top-8 space-y-6">
+              <div className="sticky top-24 space-y-6">
                 {/* Share */}
                 <div className="bg-gray-50 rounded-2xl p-6">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Podijeli članak</h3>
@@ -218,21 +219,13 @@ export default function ResponzivniDizajn() {
                     ))}
                   </div>
                 </div>
-                {/* CTA */}
-                <div className="bg-gradient-to-br from-[#0C363C] to-emerald-600 rounded-2xl p-6 text-white">
-                  <h3 className="text-lg font-semibold mb-3">Trebate web stranicu?</h3>
-                  <p className="text-gray-200 mb-4 text-sm">
-                    Kontaktirajte nas za besplatnu konsultaciju i kreirajte profesionalnu web prezentaciju.
-                  </p>
-                  <Link href="/kontakt" className="bg-white text-[#0C363C] px-4 py-2 rounded-xl font-semibold hover:bg-gray-100 transition-colors duration-200 inline-block">
-                    Kontaktirajte nas
-                  </Link>
-                </div>
+
               </div>
             </div>
           </div>
         </div>
       </section>
+      <CTASection/>
       <Footer />
     </div>
   );

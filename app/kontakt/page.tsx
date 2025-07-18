@@ -1,10 +1,22 @@
 "use client";
 
 import { useState } from "react";
-import { CheckIcon, EnvelopeClosedIcon, PersonIcon, ChevronDownIcon, HomeIcon } from "@radix-ui/react-icons";
+import { motion } from "framer-motion";
+import { 
+  CheckIcon, 
+  MailIcon, 
+  PhoneIcon, 
+  MapPinIcon,
+  ClockIcon,
+  UserIcon,
+  MessageSquareIcon,
+  SendIcon,
+  ArrowRightIcon,
+  ChevronDownIcon,
+  ChevronUpIcon
+} from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import AnimatedText from "../components/AnimatedText";
 
 export default function KontaktPage() {
   const [formData, setFormData] = useState({
@@ -16,8 +28,7 @@ export default function KontaktPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
-
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -58,62 +69,120 @@ export default function KontaktPage() {
     }
   };
 
-  const toggleFAQ = (index: number) => {
-    setOpenFAQ(openFAQ === index ? null : index);
-  };
+  const contactInfo = [
+    {
+      icon: MailIcon,
+      title: "Email",
+      content: "hcutuna@gmail.com",
+      color: "from-blue-500 to-cyan-500",
+      desc: "Odgovarat ćemo u roku od 2 sata",
+      href: "mailto:hcutuna@gmail.com"
+    },
+    {
+      icon: PhoneIcon,
+      title: "Telefon",
+      content: "+387 61 496 745",
+      color: "from-emerald-500 to-teal-500",
+      desc: "Dostupni radnim danima 9-17h",
+      href: "tel:+38761496745"
+    },
+    {
+      icon: MapPinIcon,
+      title: "Lokacija",
+      content: "Sarajevo, BiH",
+      color: "from-purple-500 to-pink-500",
+      desc: "Radimo sa klijentima globalno",
+      href: null
+    },
+    {
+      icon: ClockIcon,
+      title: "Radno vrijeme",
+      content: "Pon-Pet 9:00-17:00",
+      color: "from-orange-500 to-red-500",
+      desc: "Weekend dostupni za hitne slučajeve",
+      href: null
+    }
+  ];
 
-
+  const services = [
+    "Web Development",
+    "SEO Optimizacija",
+    "Branding & Dizajn",
+    "Digital Marketing",
+    "E-commerce Rješenja",
+    "Održavanje Web Stranica",
+    "Drugo"
+  ];
 
   const faqData = [
     {
-      question: "Koliko vremena je potrebno za izgradnju web stranice?",
-      answer: "Vrijeme izrade zavisi od složenosti projekta. Jednostavna web stranica može biti gotova za 1-2 sedmice, dok složeniji projekti mogu trajati 4-8 sedmica. Nakon konzultacije, dat ćemo vam preciznu procjenu."
+      question: "Koliko traje izrada web stranice?",
+      answer: "Vrijeme izrade zavisi od kompleksnosti projekta. Jednostavne web stranice mogu biti gotove za 2-3 nedelje, dok kompleksniji projekti mogu trajati 6-8 nedelja. Uvijek vas informišemo o tačnom vremenskom okviru prije početka rada."
     },
     {
-      question: "Šta je uključeno u SEO optimizaciju?",
-      answer: "Naša SEO usluga uključuje: analizu ključnih riječi, optimizaciju sadržaja, tehnička poboljšanja, link building, mjesečne izvještaje i kontinuirano praćenje performansi."
+      question: "Da li nudite održavanje web stranica?",
+      answer: "Da, nudimo kompletnu uslugu održavanja web stranica koja uključuje redovne ažuriranja, sigurnosne patcheve, backup-ove i tehničku podršku. Naši paketi su fleksibilni i prilagođeni vašim potrebama."
     },
     {
-      question: "Da li nudite održavanje web stranice?",
-      answer: "Da, nudimo kompletno održavanje uključujući: sigurnosna ažuriranja, backup, tehnička podrška, dodavanje novog sadržaja i performanse optimizacije."
+      question: "Koje su cijene vaših usluga?",
+      answer: "Cijene se razlikuju ovisno o kompleksnosti projekta i vašim specifičnim potrebama. Svaki projekat je jedinstven, pa vam nudimo personalizovane ponude. Kontaktirajte nas za besplatnu konsultaciju i detaljnu ponudu."
     },
     {
-      question: "Koje tehnologije koristite?",
-      answer: "Koristimo moderne tehnologije kao što su React, Next.js, WordPress, HTML5, CSS3, JavaScript, kao i savremene AI alate. Prilagođavamo tehnologiju prema potrebama vašeg projekta."
+      question: "Da li radite sa klijentima iz inostranstva?",
+      answer: "Apsolutno! Radimo sa klijentima iz cijelog svijeta. Naš tim je dostupan putem email-a, telefona i video poziva. Koristimo moderne alate za saradnju koji omogućavaju efikasnu komunikaciju bez obzira na vremensku zonu."
     },
     {
-      question: "Da li radite sa klijentima van BiH?",
-      answer: "Apsolutno! Radimo sa klijentima širom regiona i svijeta. Komuniciramo putem email-a, video poziva i modernih kolaborativnih alata."
+      question: "Da li nudite SEO usluge?",
+      answer: "Da, nudimo kompletnu SEO optimizaciju koja uključuje tehničku optimizaciju, optimizaciju sadržaja, link building i redovno praćenje rezultata. Naš cilj je da vaša web stranica bude vidljiva u pretraživačima i privlači kvalitetan saobraćaj."
+    },
+    {
+      question: "Koji je proces saradnje?",
+      answer: "Proces započinjemo besplatnom konsultacijom gdje razumijemo vaše potrebe. Zatim pripremamo detaljnu ponudu i plan projekta. Nakon odobrenja, krećemo u izradu sa redovnim ažuriranjima. Nakon završetka, pružamo podršku i održavanje."
     }
   ];
 
   return (
-    <div className="min-h-screen bg-white relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-purple-400/30 to-pink-400/30 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-96 h-96 bg-gradient-to-br from-blue-400/30 to-cyan-400/30 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-gradient-to-br from-green-400/30 to-emerald-400/30 rounded-full blur-3xl animate-pulse delay-2000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-yellow-400/20 to-orange-400/20 rounded-full blur-3xl animate-pulse delay-3000"></div>
-      </div>
-
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/30">
       {/* Navigation */}
       <Navbar />
 
       {/* Hero Section */}
-      <section className="py-24 relative">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center mb-16 opacity-0 animate-fade-in-up">
-            <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight">
-              <AnimatedText 
-                text="Započnimo vaš digitalni uspjeh"
-                delay={500}
-              />
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute top-40 right-20 w-96 h-96 bg-gradient-to-br from-emerald-400/20 to-teal-400/20 rounded-full blur-3xl animate-pulse delay-1000" />
+          <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-gradient-to-br from-pink-400/20 to-rose-400/20 rounded-full blur-3xl animate-pulse delay-2000" />
+        </div>
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200/50 rounded-full text-sm font-medium text-green-700 mb-6"
+            >
+              <MessageSquareIcon className="w-4 h-4" />
+              <span>Kontaktirajte nas</span>
+            </motion.div>
+
+            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+              Započnimo vaš{" "}
+              <span className="bg-gradient-to-r from-[#0B3C41] via-[#00BE57] to-emerald-600 bg-clip-text text-transparent">
+                digitalni uspjeh
+              </span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto font-light leading-relaxed">
+            
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Spremni smo da pretvorimo vaše kreativne ideje u digitalni uspjeh. Počnimo razgovor koji će transformirati vaš biznis.
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -122,127 +191,186 @@ export default function KontaktPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
             {/* Contact Info */}
-            <div className="lg:col-span-2 opacity-0 animate-fade-in-left">
-              <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/50">
-                <h2 className="text-3xl font-bold text-gray-900 mb-8 font-serif">Direktan pristup</h2>
-                <div className="space-y-6">
-                  {[
-                    {
-                      icon: EnvelopeClosedIcon,
-                      title: "Email",
-                      content: "hcutuna@gmail.com",
-                      color: "from-blue-500 to-cyan-500",
-                      desc: "Odgovarat ćemo u roku od 2 sata"
-                    },
-                    {
-                      icon: PersonIcon,
-                      title: "Telefon",
-                      content: "+387 61 496 745",
-                      color: "from-emerald-500 to-green-500",
-                      desc: "Dostupni radnim danima 9-17h"
-                    },
-                    {
-                      icon: HomeIcon,
-                      title: "Lokacija",
-                      content: "Sarajevo, BiH",
-                      color: "from-purple-500 to-pink-500",
-                      desc: "Radimo sa klijentima globalno"
-                    }
-                  ].map((item, index) => (
-                    <div key={index} className={`group p-6 bg-gradient-to-r ${item.color} rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 opacity-0 animate-fade-in-up stagger-delay-${index + 1}`}>
-                      <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
-                          <item.icon className="w-6 h-6 text-white" />
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="lg:col-span-2"
+            >
+              <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-2xl border border-gray-200/50 h-full">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                  Direktan{" "}
+                  <span className="bg-gradient-to-r from-[#0B3C41] to-[#00BE57] bg-clip-text text-transparent">
+                    pristup
+                  </span>
+                </h2>
+                
+                <div className="space-y-4 mb-8">
+                  {contactInfo.map((item, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+                      whileHover={{ scale: 1.02, y: -2 }}
+                      className={`group p-4 bg-gradient-to-r ${item.color} rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer`}
+                      onClick={item.href ? () => window.open(item.href, item.href?.startsWith('mailto:') ? undefined : '_blank') : undefined}
+                    >
+                      <div className="flex items-start gap-3">
+                        <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm group-hover:scale-110 transition-transform duration-200">
+                          <item.icon className="w-5 h-5 text-white" />
                         </div>
                         <div className="flex-1">
-                          <h3 className="font-bold text-white text-lg">{item.title}</h3>
-                          <p className="text-white/90 font-medium text-lg">{item.content}</p>
-                          <p className="text-white/70 text-sm mt-1">{item.desc}</p>
+                          <h3 className="font-bold text-white text-base">{item.title}</h3>
+                          <p className="text-white/90 font-medium text-base">{item.content}</p>
+                          <p className="text-white/70 text-xs mt-1">{item.desc}</p>
                         </div>
+                        {item.href && (
+                          <ArrowRightIcon className="w-4 h-4 text-white/70 group-hover:text-white group-hover:translate-x-1 transition-all duration-200" />
+                        )}
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
 
-
+                {/* Additional Info Section */}
+                <div className="bg-gradient-to-br from-slate-50 to-blue-50/50 rounded-2xl p-6 border border-gray-200/30">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                    <MessageSquareIcon className="w-5 h-5 text-[#00BE57]" />
+                    Brza komunikacija
+                  </h3>
+                  <div className="space-y-3 text-sm text-gray-600">
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-[#00BE57] rounded-full"></div>
+                      <span>Odgovor u roku od 2 sata</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-[#00BE57] rounded-full"></div>
+                      <span>Besplatna konsultacija</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-[#00BE57] rounded-full"></div>
+                      <span>Personalizovana ponuda</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-[#00BE57] rounded-full"></div>
+                      <span>24/7 tehnička podrška</span>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Contact Form */}
-            <div className="lg:col-span-3 opacity-0 animate-fade-in-right">
-              <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-10 border border-white/50 transition-all duration-500">
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="lg:col-span-3"
+            >
+              <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-10 border border-gray-200/50 h-full">
                 {isSubmitted ? (
-                  <div className="text-center py-12">
-                    <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <CheckIcon className="w-10 h-10 text-white" />
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6 }}
+                    className="h-full flex items-center justify-center"
+                  >
+                    <div className="text-center">
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-6"
+                      >
+                        <CheckIcon className="w-10 h-10 text-white" />
+                      </motion.div>
+                      <h3 className="text-3xl font-bold text-gray-900 mb-4">Fantastično!</h3>
+                      <p className="text-gray-600 mb-8 text-lg">Vaša poruka je uspješno poslana. Naš tim će vas kontaktirati u najkraćem mogućem roku.</p>
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => setIsSubmitted(false)}
+                        className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-8 py-4 rounded-2xl hover:from-green-500 hover:to-emerald-500 transition-all duration-300 font-semibold shadow-lg"
+                      >
+                        Pošalji novu poruku
+                      </motion.button>
                     </div>
-                    <h3 className="text-3xl font-bold text-gray-900 mb-4 font-serif">Fantastično!</h3>
-                    <p className="text-gray-600 mb-8 text-lg">Vaša poruka je uspješno poslana. Naš tim će vas kontaktirati u najkraćem mogućem roku.</p>
-                    <button
-                      onClick={() => setIsSubmitted(false)}
-                      className="bg-gradient-to-r from-[#0C363C] to-teal-600 text-white px-8 py-4 rounded-xl hover:from-[#0C363C]/90 hover:to-teal-500 transition-all duration-300 hover:scale-105 font-semibold"
-                    >
-                      Pošalji novu poruku
-                    </button>
-                  </div>
+                  </motion.div>
                 ) : (
-                  <div>
-                    <h3 className="text-3xl font-bold text-gray-900 mb-2 font-serif">Započnimo saradnju</h3>
-                    <p className="text-gray-600 mb-8 text-lg">Opišite svoj projekat i mi ćemo vam poslati personalizovani prijedlog u roku od 24 sata.</p>
+                  <div className="h-full flex flex-col">
+                    <div className="mb-8">
+                      <h3 className="text-3xl font-bold text-gray-900 mb-2">
+                        Započnimo{" "}
+                        <span className="bg-gradient-to-r from-[#0B3C41] to-[#00BE57] bg-clip-text text-transparent">
+                          saradnju
+                        </span>
+                      </h3>
+                      <p className="text-gray-600 text-lg">Opišite svoj projekat i mi ćemo vam poslati personalizovani prijedlog u roku od 24 sata.</p>
+                    </div>
                     
-                    <form id="contact-form" onSubmit={handleSubmit} className="space-y-6">
+                    <form onSubmit={handleSubmit} className="space-y-6 flex-1 flex flex-col">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                          <label htmlFor="name" className="block text-sm font-bold text-gray-800 mb-3 uppercase tracking-wide">
+                          <label htmlFor="name" className="block text-sm font-semibold text-gray-800 mb-3">
                             Ime i prezime *
                           </label>
-                          <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            required
-                            className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-200 font-medium text-gray-900 bg-white/80"
-                            placeholder="Vaše ime i prezime"
-                          />
+                          <div className="relative">
+                            <UserIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                            <input
+                              type="text"
+                              id="name"
+                              name="name"
+                              value={formData.name}
+                              onChange={handleChange}
+                              required
+                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 font-medium text-gray-900 bg-white/80"
+                              placeholder="Vaše ime i prezime"
+                            />
+                          </div>
                         </div>
 
                         <div>
-                          <label htmlFor="email" className="block text-sm font-bold text-gray-800 mb-3 uppercase tracking-wide">
+                          <label htmlFor="email" className="block text-sm font-semibold text-gray-800 mb-3">
                             Email adresa *
                           </label>
-                          <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            required
-                            className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-200 font-medium text-gray-900 bg-white/80"
-                            placeholder="vas@email.com"
-                          />
+                          <div className="relative">
+                            <MailIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                            <input
+                              type="email"
+                              id="email"
+                              name="email"
+                              value={formData.email}
+                              onChange={handleChange}
+                              required
+                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 font-medium text-gray-900 bg-white/80"
+                              placeholder="vas@email.com"
+                            />
+                          </div>
                         </div>
                       </div>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                          <label htmlFor="phone" className="block text-sm font-bold text-gray-800 mb-3 uppercase tracking-wide">
+                          <label htmlFor="phone" className="block text-sm font-semibold text-gray-800 mb-3">
                             Broj telefona
                           </label>
-                          <input
-                            type="tel"
-                            id="phone"
-                            name="phone"
-                            value={formData.phone}
-                            onChange={handleChange}
-                            className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-200 font-medium text-gray-900 bg-white/80"
-                            placeholder="+387 XX XXX XXX"
-                          />
+                          <div className="relative">
+                            <PhoneIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                            <input
+                              type="tel"
+                              id="phone"
+                              name="phone"
+                              value={formData.phone}
+                              onChange={handleChange}
+                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 font-medium text-gray-900 bg-white/80"
+                              placeholder="+387 XX XXX XXX"
+                            />
+                          </div>
                         </div>
 
                         <div>
-                          <label htmlFor="service" className="block text-sm font-bold text-gray-800 mb-3 uppercase tracking-wide">
+                          <label htmlFor="service" className="block text-sm font-semibold text-gray-800 mb-3">
                             Usluga
                           </label>
                           <select
@@ -250,21 +378,18 @@ export default function KontaktPage() {
                             name="service"
                             value={formData.service}
                             onChange={handleChange}
-                            className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-200 font-medium text-gray-900 bg-white/80"
+                            className="w-full px-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 font-medium text-gray-900 bg-white/80"
                           >
                             <option value="">Odaberite uslugu</option>
-                            <option value="web-development">Web Development</option>
-                            <option value="seo">SEO Optimizacija</option>
-                            <option value="branding">Branding & Dizajn</option>
-                            <option value="maintenance">Održavanje web stranice</option>
-                            <option value="consultation">Konsultacija</option>
-                            <option value="other">Ostalo</option>
+                            {services.map((service, index) => (
+                              <option key={index} value={service}>{service}</option>
+                            ))}
                           </select>
                         </div>
                       </div>
 
                       <div>
-                        <label htmlFor="message" className="block text-sm font-bold text-gray-800 mb-3 uppercase tracking-wide">
+                        <label htmlFor="message" className="block text-sm font-semibold text-gray-800 mb-3">
                           Poruka *
                         </label>
                         <textarea
@@ -274,62 +399,102 @@ export default function KontaktPage() {
                           onChange={handleChange}
                           required
                           rows={6}
-                          className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-200 resize-none font-medium text-gray-900 bg-white/80"
-                          placeholder="Opišite vaš projekat ili postavite pitanje..."
+                          className="w-full px-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 font-medium text-gray-900 bg-white/80 resize-none"
+                          placeholder="Opišite vaš projekat, ciljeve i očekivanja..."
                         />
                       </div>
 
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className={`w-full py-5 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl ${
-                          isSubmitting
-                            ? 'bg-gray-400 cursor-not-allowed'
-                            : 'bg-gradient-to-r from-[#0C363C] to-emerald-600 hover:from-[#0C363C]/90 hover:to-emerald-500'
-                        } text-white`}
-                      >
-                        {isSubmitting ? 'Šalje se...' : 'Pošalji poruku →'}
-                      </button>
+                      <div className="mt-auto pt-6">
+                        <motion.button
+                          type="submit"
+                          disabled={isSubmitting}
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          className="w-full bg-gradient-to-r from-[#0B3C41] to-[#00BE57] text-white py-4 rounded-2xl font-semibold hover:from-[#0B3C41] hover:to-[#00BE57] transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                        >
+                          {isSubmitting ? (
+                            <>
+                              <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                              Slanje poruke...
+                            </>
+                          ) : (
+                            <>
+                              <SendIcon className="w-5 h-5" />
+                              Pošalji poruku
+                            </>
+                          )}
+                        </motion.button>
+                      </div>
                     </form>
                   </div>
                 )}
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-
       {/* FAQ Section */}
-      <section className="py-20">
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-serif">Često postavljana pitanja</h2>
-            <p className="text-xl text-gray-600">Odgovori na najčešća pitanja o našim uslugama</p>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Često postavljena{" "}
+              <span className="bg-gradient-to-r from-[#0B3C41] to-[#00BE57] bg-clip-text text-transparent">
+                pitanja
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Pronađite odgovore na najčešća pitanja o našim uslugama i procesu saradnje
+            </p>
+          </motion.div>
 
           <div className="space-y-4">
             {faqData.map((faq, index) => (
-              <div key={index} className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-white/50 overflow-hidden">
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200/50 overflow-hidden"
+              >
                 <button
-                  onClick={() => toggleFAQ(index)}
-                  className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-blue-50/50 transition-colors duration-200"
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50/50 transition-colors duration-200"
                 >
-                  <h3 className="text-lg font-semibold text-gray-900 pr-4">{faq.question}</h3>
-                  <ChevronDownIcon className={`w-5 h-5 text-gray-500 transition-transform duration-200 ${openFAQ === index ? 'rotate-180' : ''}`} />
-                </button>
-                {openFAQ === index && (
-                  <div className="px-8 pb-6">
-                    <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                  <h3 className="text-lg font-semibold text-gray-900 pr-4">
+                    {faq.question}
+                  </h3>
+                  <div className="flex-shrink-0">
+                    {openFaq === index ? (
+                      <ChevronUpIcon className="w-6 h-6 text-gray-500" />
+                    ) : (
+                      <ChevronDownIcon className="w-6 h-6 text-gray-500" />
+                    )}
                   </div>
-                )}
-              </div>
+                </button>
+                <motion.div
+                  initial={false}
+                  animate={{ height: openFaq === index ? "auto" : 0, opacity: openFaq === index ? 1 : 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="overflow-hidden"
+                >
+                  <div className="px-8 pb-6">
+                    <p className="text-gray-600 leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                </motion.div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
-
-
 
       {/* Footer */}
       <Footer />
