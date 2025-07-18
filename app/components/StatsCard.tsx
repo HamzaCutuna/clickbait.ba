@@ -3,16 +3,14 @@
 import { motion } from "framer-motion";
 import { ComponentType } from "react";
 
-interface Stat {
-  number: string;
-  label: string;
-  icon: ComponentType<any>;
-  color: string;
-  description: string;
-}
-
 interface StatsCardProps {
-  stat: Stat;
+  stat: {
+    number: string;
+    label: string;
+    description: string;
+    icon: ComponentType<{ className?: string }>;
+    color: string;
+  };
   index: number;
 }
 

@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { 
-  CheckIcon, 
   StarIcon, 
   ChartBarIcon, 
   CodeBracketIcon, 
@@ -331,29 +330,31 @@ export default function Home() {
                   {
                     title: "Dokazano iskustvo",
                     description: "Više od 150 uspješno završenih projekata u različitim industrijama.",
-                    icon: AcademicCapIcon,
-                    color: "from-blue-500 to-cyan-500"
+                    icon: AcademicCapIcon
                   },
                   {
                     title: "Personalizovani pristup",
                     description: "Svaki projekt prilagođavamo specifičnim potrebama i ciljevima klijenta.",
-                    icon: SparklesIcon,
-                    color: "from-purple-500 to-pink-500"
+                    icon: SparklesIcon
                   },
                   {
                     title: "Kontinuirana podrška",
                     description: "Pružamo 24/7 podršku i redovno ažuriramo vaše stranice.",
-                    icon: LockClosedIcon,
-                    color: "from-emerald-500 to-teal-500"
+                    icon: LockClosedIcon
                   },
                   {
                     title: "Transparentnost",
                     description: "Redovni izvještaji o napretku i jasna komunikacija kroz cijeli proces.",
-                    icon: GlobeAltIcon,
-                    color: "from-orange-500 to-red-500"
+                    icon: GlobeAltIcon
                   }
                 ].map((feature, index) => (
-                  <FeatureCard key={index} feature={feature} index={index} />
+                  <FeatureCard 
+                    key={index} 
+                    icon={feature.icon} 
+                    title={feature.title} 
+                    description={feature.description} 
+                    delay={index * 0.1} 
+                  />
                 ))}
               </div>
             </motion.div>

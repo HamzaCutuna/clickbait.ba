@@ -4,17 +4,15 @@ import { motion } from "framer-motion";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import { ComponentType } from "react";
 
-interface Service {
-  icon: ComponentType<any>;
-  title: string;
-  description: string;
-  features: string[];
-  color: string;
-  gradient: string;
-}
-
 interface ServiceCardProps {
-  service: Service;
+  service: {
+    title: string;
+    description: string;
+    icon: ComponentType<{ className?: string }>;
+    color: string;
+    gradient: string;
+    features: string[];
+  };
   index: number;
 }
 

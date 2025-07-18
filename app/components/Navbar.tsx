@@ -4,8 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
-import { Menu as HeadlessMenu, Transition } from "@headlessui/react";
+import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
