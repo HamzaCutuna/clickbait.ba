@@ -96,11 +96,11 @@ export default function SeoOptimizacija() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <section className="relative bg-gradient-to-br from-[#0C363C]/5 via-emerald-50/30 to-cyan-50/20 py-20 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-[#0C363C]/5 via-emerald-50/30 to-cyan-50/20 pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-[#0C363C]/5 via-transparent to-emerald-100/20"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="mb-8">
-            <Link href="/blog" className="inline-flex items-center text-[#0C363C] font-semibold hover:text-emerald-600 transition-colors duration-200 mb-6 group">
+          <div className="mb-8 relative z-10">
+            <Link href="/blog" className="inline-flex items-center text-[#0C363C] font-semibold hover:text-emerald-600 transition-colors duration-200 mb-6 group relative z-20">
               <ArrowLeftIcon className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform duration-200" />
               Povratak na blog
             </Link>
