@@ -37,7 +37,7 @@ export default function ProfesionalnaWebStranica() {
       },
       {
         type: "image",
-        src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop",
+        src: "/images/profesionalna-web-stranica.jpg",
         alt: "Modern web design team",
         caption: "Profesionalan dizajn ostavlja snažan prvi utisak."
       },
@@ -86,7 +86,7 @@ export default function ProfesionalnaWebStranica() {
         text: "Za razliku od fizičke lokacije, vaša web stranica dostupna je 24 sata dnevno, 7 dana u sedmici. To znači da potencijalni klijenti mogu saznati o vašim uslugama, pregledati vaše proizvode ili vas kontaktirati u bilo koje vrijeme, bez obzira na radno vrijeme."
       },
     ],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop",
+    image: "/images/profesionalna-web-stranica.jpg",
     author: "Lamija Ibišević",
     date: "15. juni 2025.",
     category: "Web Development",
@@ -100,14 +100,14 @@ export default function ProfesionalnaWebStranica() {
         <title>{post.title} | Clickbait</title>
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
-        <meta property="og:image" content={post.image.startsWith('http') ? post.image : `https://www.clickbait.ba${post.image}`} />
+        <meta property="og:image" content="/images/profesionalna-web-stranica.jpg" />
         <meta property="og:url" content={`https://www.clickbait.ba/blog/profesionalna-web-stranica`} />
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content="Clickbait" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.excerpt} />
-        <meta name="twitter:image" content={post.image.startsWith('http') ? post.image : `https://www.clickbait.ba${post.image}`} />
+        <meta name="twitter:image" content="/images/profesionalna-web-stranica.jpg" />
       </Head>
       <Navbar />
       <section className="relative bg-gradient-to-br from-[#0C363C]/5 via-emerald-50/30 to-cyan-50/20 pt-32 pb-20 overflow-hidden">
