@@ -94,14 +94,14 @@ export default function ResponzivniDizajn() {
         <title>{post.title} | Clickbait</title>
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
-        <meta property="og:image" content="/images/responzivni-dizajn.jpg" />
+        <meta property="og:image" content="https://www.clickbait.ba/images/responzivni-dizajn.jpg" />
         <meta property="og:url" content={`https://www.clickbait.ba/blog/responzivni-dizajn`} />
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content="Clickbait" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.excerpt} />
-        <meta name="twitter:image" content="/images/responzivni-dizajn.jpg" />
+        <meta name="twitter:image" content="https://www.clickbait.ba/images/responzivni-dizajn.jpg" />
       </Head>
       <Navbar />
       <section className="relative bg-gradient-to-br from-[#0C363C]/5 via-emerald-50/30 to-cyan-50/20 pt-32 pb-20 overflow-hidden">
