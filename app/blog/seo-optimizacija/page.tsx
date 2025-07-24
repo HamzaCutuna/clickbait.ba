@@ -7,6 +7,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { useState } from "react";
 import { CTASection } from "@/app/components/CTASection";
+import Head from "next/head";
 // SVGs for Facebook and WhatsApp
 const FacebookIcon = (props: React.ImgHTMLAttributes<HTMLImageElement>) => (
   <img src="/facebook.svg" alt="Facebook" {...props} />
@@ -95,6 +96,19 @@ export default function SeoOptimizacija() {
 
   return (
     <div className="min-h-screen bg-white">
+      <Head>
+        <title>{post.title} | Clickbait</title>
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.excerpt} />
+        <meta property="og:image" content={post.image.startsWith('http') ? post.image : `https://www.clickbait.ba${post.image}`} />
+        <meta property="og:url" content={`https://www.clickbait.ba/blog/seo-optimizacija`} />
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="Clickbait" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={post.excerpt} />
+        <meta name="twitter:image" content={post.image.startsWith('http') ? post.image : `https://www.clickbait.ba${post.image}`} />
+      </Head>
       <Navbar />
       <section className="relative bg-gradient-to-br from-[#0C363C]/5 via-emerald-50/30 to-cyan-50/20 pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-[#0C363C]/5 via-transparent to-emerald-100/20"></div>
