@@ -1,0 +1,25 @@
+{
+  "name": "Clickbait - Web Development Agency",
+  "short_name": "Clickbait",
+  "description": "Specijalizovani smo za kreiranje responzivnih web stranica koje donose rezultate",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0B3C41",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "lang": "bs",
+  "dir": "ltr"
+} 

@@ -13,8 +13,8 @@ interface TypewriterTextProps {
 export function TypewriterText({ 
   texts, 
   className = "", 
-  speed = 50, 
-  delay = 2000 
+  speed = 60, 
+  delay = 2500 
 }: TypewriterTextProps) {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
@@ -56,14 +56,14 @@ export function TypewriterText({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
-          className="inline-block"
+          transition={{ duration: 0.15 }}
+          className="inline-block motion-reduce"
         >
           {currentText}
           <motion.span
             animate={{ opacity: [1, 0, 1] }}
-            transition={{ duration: 0.8, repeat: Infinity }}
-            className="inline-block w-0.5 h-6 bg-gradient-to-b from-[#0B3C41] to-[#00BE57] ml-1"
+            transition={{ duration: 0.8, repeat: Infinity, ease: "easeInOut" }}
+            className="inline-block w-0.5 h-5 lg:h-6 bg-gradient-to-b from-[#0B3C41] to-[#00BE57] ml-1 motion-reduce"
           />
         </motion.span>
       </AnimatePresence>

@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { CalendarIcon, PersonIcon } from "@radix-ui/react-icons";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import AnimatedText from "../components/AnimatedText";
 import { useState } from "react";
 
 export default function BlogPage() {
@@ -80,26 +80,129 @@ export default function BlogPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#0C363C]/5 via-emerald-50/30 to-cyan-50/20 py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0C363C]/5 via-transparent to-emerald-100/20"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight opacity-0 animate-fade-in-up">
-              <AnimatedText 
-                text="Digitalni fokus"
-                delay={100}
-              />
-            </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-3xl mx-auto opacity-0 animate-fade-in-delayed">
-              Pratite najnovije trendove u web developmentu, SEO optimizaciji i digitalnom marketingu. 
-              Stručni savjeti i uvidi koji će vam pomoći da uspješno digitalizujete vaš biznis.
-            </p>
-          </div>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50/30 pt-20 pb-8 lg:pb-0">
+        {/* Simplified Background Elements for mobile performance */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Reduced complexity - only show on desktop */}
+          <div className="hidden lg:block absolute top-1/4 left-1/4 w-72 h-72 bg-gradient-to-br from-yellow-400/15 to-orange-400/15 rounded-full blur-2xl animate-pulse"></div>
+          <div className="hidden lg:block absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-emerald-400/15 to-teal-400/15 rounded-full blur-2xl animate-pulse delay-1000"></div>
+          
+          {/* Mobile-friendly background */}
+          <div className="lg:hidden absolute top-1/3 left-1/3 w-48 h-48 bg-gradient-to-br from-emerald-400/10 to-teal-400/10 rounded-full blur-xl"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="space-y-6 lg:space-y-8"
+          >
+            {/* Trending Tags */}
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex flex-wrap justify-center gap-3"
+            >
+              {['#SEO', '#WebDevelopment', '#Marketing', '#UX', '#DigitalMarketing'].map((tag, index) => (
+                <span 
+                  key={tag}
+                  className="bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium text-gray-700 border border-gray-200/50 hover:bg-white hover:border-[#0C363C] hover:text-[#0C363C] transition-all duration-300 cursor-pointer"
+                >
+                  {tag}
+                </span>
+              ))}
+            </motion.div>
+
+            <div className="space-y-4 lg:space-y-6 text-center">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight">
+                <span className="bg-gradient-to-r from-[#0B3C41] to-[#00BE57] bg-clip-text text-transparent">
+                  Digitalni fokus
+                </span>
+              </h1>
+
+              <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto text-left">
+                Pratite najnovije trendove u web developmentu, SEO optimizaciji i digitalnom marketingu. 
+                Stručni savjeti i uvidi koji će vam pomoći da uspješno digitalizujete vaš biznis.
+              </p>
+            </div>
+
+            {/* Recent News Section */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mt-12 lg:mt-16"
+            >
+              <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-8 text-center">
+                Najnoviji članak
+              </h2>
+              
+              <div className="max-w-2xl mx-auto">
+                {(() => {
+                  const latestPost = blogPosts[0];
+                  const href = "/blog/profesionalna-web-stranica";
+                  return (
+                    <Link
+                      href={href}
+                      className="group bg-white/80 backdrop-blur-sm rounded-xl p-6 hover:bg-white hover:shadow-lg transition-all duration-300 border border-gray-200/50 block"
+                    >
+                      <div className="flex flex-col lg:flex-row items-start space-y-4 lg:space-y-0 lg:space-x-6">
+                        <div className="relative w-full lg:w-32 h-48 lg:h-32 rounded-lg overflow-hidden flex-shrink-0">
+                          <Image
+                            src={latestPost.image}
+                            alt={latestPost.title}
+                            fill
+                            className="object-cover group-hover:scale-110 transition-transform duration-300"
+                          />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center text-xs text-gray-500 mb-2">
+                            <span className="bg-gradient-to-r from-[#0C363C] to-emerald-600 text-white px-3 py-1 rounded-full text-xs font-medium">
+                              {latestPost.category}
+                            </span>
+                            <span className="mx-2">•</span>
+                            <span>{latestPost.readTime}</span>
+                            <span className="mx-2">•</span>
+                            <span>{latestPost.date}</span>
+                          </div>
+                          <h3 className="text-lg font-bold text-gray-900 group-hover:text-[#0C363C] transition-colors duration-300 leading-tight mb-2">
+                            {latestPost.title}
+                          </h3>
+                          <p className="text-sm text-gray-600 leading-relaxed">
+                            {latestPost.excerpt}
+                          </p>
+                        </div>
+                      </div>
+                    </Link>
+                  );
+                })()}
+              </div>
+
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="mt-8 text-center"
+              >
+                <Link 
+                  href="#blog-posts"
+                  className="inline-flex items-center text-[#0C363C] font-semibold hover:text-emerald-600 transition-colors duration-200 group"
+                >
+                  <span>Pogledaj sve članke</span>
+                  <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </motion.div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Blog Posts Grid */}
-      <section className="py-20">
+      <section id="blog-posts" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post, index) => {

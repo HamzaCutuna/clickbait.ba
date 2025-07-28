@@ -10,8 +10,8 @@ import { CTASection } from "@/app/components/CTASection";
 import Head from "next/head";
 
 // SVGs for Facebook and WhatsApp
-const FacebookIcon = (props: React.ImgHTMLAttributes<HTMLImageElement>) => (
-  <img src="/facebook.svg" alt="Facebook" {...props} />
+const FacebookIcon = () => (
+  <Image src="/facebook.svg" alt="Facebook" width={20} height={20} className="w-5 h-5 text-white" />
 );
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 32 32" fill="currentColor" {...props}><path d="M16.004 3.2c-7.06 0-12.8 5.74-12.8 12.8 0 2.26.6 4.47 1.74 6.41L3.2 28.8l6.56-1.7c1.87 1.02 3.98 1.56 6.24 1.56h.01c7.06 0 12.8-5.74 12.8-12.8s-5.74-12.8-12.8-12.8zm6.98 18.13c-.29.81-1.7 1.59-2.34 1.69-.6.09-1.36.13-2.19-.14-.5-.16-1.14-.37-1.97-.73-3.47-1.5-5.74-5.01-5.92-5.25-.17-.23-1.41-1.88-1.41-3.59 0-1.71.9-2.55 1.22-2.89.29-.3.77-.44 1.23-.44.15 0 .28.01.4.01.35.01.52.02.75.58.29.7.99 2.41 1.08 2.59.09.18.15.4.03.63-.11.23-.17.37-.33.57-.16.19-.34.42-.48.56-.16.16-.33.33-.14.65.19.32.85 1.41 1.83 2.29 1.26 1.13 2.32 1.48 2.65 1.65.33.17.52.14.71-.08.19-.22.81-.94 1.03-1.26.22-.32.43-.27.72-.16.29.11 1.84.87 2.15 1.03.31.16.52.24.6.37.08.13.08.75-.21 1.56z"/></svg>
@@ -197,7 +197,7 @@ export default function ResponzivniDizajn() {
                       className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors duration-200"
                       title="Podijeli na Facebook"
                     >
-                      <FacebookIcon className="w-5 h-5 text-white" />
+                      <FacebookIcon />
                     </a>
                     <a
                       href={`https://wa.me/?text=${encodeURIComponent(post.title + ' ' + articleUrl)}`}

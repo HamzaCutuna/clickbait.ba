@@ -65,7 +65,7 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-center lg:text-left"
+            className="hidden lg:block text-center lg:text-left"
           >
             <h4 className="text-lg font-semibold text-white mb-6">Brze veze</h4>
             <div className="space-y-3">

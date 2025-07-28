@@ -46,7 +46,7 @@ export default function AnimatedText({ text, className = '', delay = 0 }: Animat
           background-color: #111827;
         }
         .shimmer-text.animate {
-          animation: shimmer 5s linear infinite;
+          animation: shimmer 3s linear infinite;
         }
         @keyframes shimmer {
           0% {
@@ -56,13 +56,14 @@ export default function AnimatedText({ text, className = '', delay = 0 }: Animat
             background-position: 100% 0%;
           }
         }
+        /* Fallback for browsers that don't support background-clip: text */
         @supports not (-webkit-background-clip: text) {
           .shimmer-text {
             color: #111827;
             -webkit-text-fill-color: #111827;
           }
           .shimmer-text.animate {
-            animation: colorShimmer 1s linear infinite;
+            animation: colorShimmer 0.8s linear infinite;
           }
           @keyframes colorShimmer {
             0%, 100% { color: #111827; }
@@ -72,7 +73,8 @@ export default function AnimatedText({ text, className = '', delay = 0 }: Animat
             54% { color: #111827; }
           }
         }
-        @media (prefers-reduced-motion: reduce) {
+        /* Disable animation on mobile and reduced motion */
+        @media (max-width: 768px), (prefers-reduced-motion: reduce) {
           .shimmer-text.animate {
             animation: none;
             background: #111827;

@@ -9,11 +9,11 @@ export function CTASection() {
     <section className="relative py-20 bg-gradient-to-br from-[#0C363C] via-[#0C363C]0 to-emerald-600 overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="space-y-8"
+          transition={{ duration: 0.4 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="space-y-8 motion-reduce"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Spremni ste za{" "}
@@ -27,11 +27,11 @@ export function CTASection() {
           </p>
 
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            transition={{ duration: 0.3, delay: 0.1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="flex flex-col sm:flex-row gap-4 justify-center motion-reduce"
           >
             <Link 
               href="/kontakt" 
@@ -55,9 +55,9 @@ export function CTASection() {
           <motion.div 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="flex items-center justify-center gap-8 pt-8"
+            transition={{ duration: 0.3, delay: 0.2 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 pt-6 sm:pt-8 motion-reduce"
           >
             <div className="flex items-center gap-2 text-blue-100">
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />

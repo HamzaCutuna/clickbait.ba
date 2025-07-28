@@ -15,7 +15,7 @@ export default function Navbar() {
       setScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -28,10 +28,10 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      initial={{ y: -100 }}
+      initial={{ y: -20 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      transition={{ duration: 0.3 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 motion-reduce ${
         scrolled
           ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/50"
           : "bg-transparent"
@@ -40,88 +40,75 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 lg:h-20">
           {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.2 }}
-            className="flex items-center"
-          >
-            <Link href="/" className="flex items-center space-x-2">
+          <div className="flex items-center">
+            <Link href="/" className="flex items-center space-x-2 hover:scale-105 transition-transform duration-200">
               <Image
                 src="/images/logo.png"
                 alt="Clickbait Logo"
                 width={500}
                 height={500}
-                className="w-32 h-32 lg:w-40 lg:h-40"
+                className="w-28 h-28 lg:w-36 lg:h-36"
+                priority
               />
             </Link>
-          </motion.div>
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
             {navigation.map((item) => (
-              <motion.div
+              <Link
                 key={item.name}
-                whileHover={{ y: -2 }}
-                transition={{ duration: 0.2 }}
-              >
-                <Link
                   href={item.href}
-                  className="relative text-gray-700 hover:text-black font-medium transition-colors duration-200 group"
+                className="relative text-gray-700 hover:text-black font-medium transition-colors duration-200 group hover:-translate-y-0.5"
                 >
                   {item.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-green-600 to-emerald-600 group-hover:w-full transition-all duration-300" />
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-green-600 to-emerald-600 group-hover:w-full transition-all duration-200" />
                 </Link>
-              </motion.div>
             ))}
           </div>
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
               <Link
                 href="/kontakt"
-                className="relative inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold rounded-2xl hover:from-green-700 hover:to-emerald-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25"
+              className="relative inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold rounded-2xl hover:from-green-700 hover:to-emerald-700 transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25"
               >
                 <span className="relative z-10">Zatraži ponudu</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl blur opacity-0 hover:opacity-100 transition-opacity duration-300" />
               </Link>
-            </motion.div>
           </div>
 
           {/* Mobile menu button */}
           <div className="lg:hidden flex items-center">
-            <motion.button
-              whileTap={{ scale: 0.95 }}
+            <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="p-2 rounded-xl bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-200"
+              className="p-2 rounded-xl bg-white/90 backdrop-blur-sm border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
             >
               <AnimatePresence mode="wait">
                 {menuOpen ? (
                   <motion.div
                     key="close"
-                    initial={{ rotate: -90, opacity: 0 }}
+                    initial={{ rotate: -45, opacity: 0 }}
                     animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
+                    exit={{ rotate: 45, opacity: 0 }}
+                    transition={{ duration: 0.1 }}
+                    className="motion-reduce"
                   >
                     <X className="w-5 h-5 text-gray-700" />
                   </motion.div>
                 ) : (
                   <motion.div
                     key="menu"
-                    initial={{ rotate: 90, opacity: 0 }}
+                    initial={{ rotate: 45, opacity: 0 }}
                     animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
+                    exit={{ rotate: -45, opacity: 0 }}
+                    transition={{ duration: 0.1 }}
+                    className="motion-reduce"
                   >
                     <Menu className="w-5 h-5 text-gray-700" />
                   </motion.div>
                 )}
               </AnimatePresence>
-            </motion.button>
+            </button>
           </div>
         </div>
       </div>
@@ -133,16 +120,17 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden bg-white/95 backdrop-blur-md border-t border-gray-200/50 shadow-xl"
+            transition={{ duration: 0.15 }}
+            className="lg:hidden bg-white/95 backdrop-blur-md border-t border-gray-200/50 shadow-xl motion-reduce"
           >
-            <div className="px-4 py-6 space-y-4">
+            <div className="px-4 py-6 space-y-3">
               {navigation.map((item, index) => (
                 <motion.div
                   key={item.name}
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  transition={{ duration: 0.15, delay: index * 0.03 }}
+                  className="motion-reduce"
                 >
                   <Link
                     href={item.href}
@@ -155,15 +143,15 @@ export default function Navbar() {
               ))}
               
               <motion.div
-                initial={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: navigation.length * 0.1 }}
-                className="pt-4"
+                transition={{ duration: 0.15, delay: navigation.length * 0.03 }}
+                className="pt-2 motion-reduce"
               >
                 <Link
                   href="/kontakt"
                   onClick={() => setMenuOpen(false)}
-                  className="block w-full text-center py-3 px-6 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold rounded-2xl hover:from-green-700 hover:to-emerald-700 transition-all duration-300"
+                  className="block w-full text-center py-3 px-6 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold rounded-2xl hover:from-green-700 hover:to-emerald-700 transition-all duration-200"
                 >
                   Zatraži ponudu
                 </Link>

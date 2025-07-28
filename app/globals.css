@@ -1,15 +1,143 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'General Sans';
+  src: url('/fonts/GeneralSans-Variable.woff2') format('woff2'),
+       url('/fonts/GeneralSans-Variable.woff') format('woff'),
+       url('/fonts/GeneralSans-Variable.ttf') format('truetype');
+  font-weight: 200 700;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'General Sans';
+  src: url('/fonts/GeneralSans-VariableItalic.woff2') format('woff2'),
+       url('/fonts/GeneralSans-VariableItalic.woff') format('woff'),
+       url('/fonts/GeneralSans-VariableItalic.ttf') format('truetype');
+  font-weight: 200 700;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'General Sans';
+  src: url('/fonts/GeneralSans-Regular.woff2') format('woff2'),
+       url('/fonts/GeneralSans-Regular.woff') format('woff'),
+       url('/fonts/GeneralSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'General Sans';
+  src: url('/fonts/GeneralSans-Italic.woff2') format('woff2'),
+       url('/fonts/GeneralSans-Italic.woff') format('woff'),
+       url('/fonts/GeneralSans-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'General Sans';
+  src: url('/fonts/GeneralSans-Medium.woff2') format('woff2'),
+       url('/fonts/GeneralSans-Medium.woff') format('woff'),
+       url('/fonts/GeneralSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'General Sans';
+  src: url('/fonts/GeneralSans-MediumItalic.woff2') format('woff2'),
+       url('/fonts/GeneralSans-MediumItalic.woff') format('woff'),
+       url('/fonts/GeneralSans-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'General Sans';
+  src: url('/fonts/GeneralSans-Semibold.woff2') format('woff2'),
+       url('/fonts/GeneralSans-Semibold.woff') format('woff'),
+       url('/fonts/GeneralSans-Semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'General Sans';
+  src: url('/fonts/GeneralSans-SemiboldItalic.woff2') format('woff2'),
+       url('/fonts/GeneralSans-SemiboldItalic.woff') format('woff'),
+       url('/fonts/GeneralSans-SemiboldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'General Sans';
+  src: url('/fonts/GeneralSans-Bold.woff2') format('woff2'),
+       url('/fonts/GeneralSans-Bold.woff') format('woff'),
+       url('/fonts/GeneralSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'General Sans';
+  src: url('/fonts/GeneralSans-BoldItalic.woff2') format('woff2'),
+       url('/fonts/GeneralSans-BoldItalic.woff') format('woff'),
+       url('/fonts/GeneralSans-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'General Sans';
+  src: url('/fonts/GeneralSans-Light.woff2') format('woff2'),
+       url('/fonts/GeneralSans-Light.woff') format('woff'),
+       url('/fonts/GeneralSans-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'General Sans';
+  src: url('/fonts/GeneralSans-LightItalic.woff2') format('woff2'),
+       url('/fonts/GeneralSans-LightItalic.woff') format('woff'),
+       url('/fonts/GeneralSans-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'General Sans';
+  src: url('/fonts/GeneralSans-Extralight.woff2') format('woff2'),
+       url('/fonts/GeneralSans-Extralight.woff') format('woff'),
+       url('/fonts/GeneralSans-Extralight.ttf') format('truetype');
+  font-weight: 200;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'General Sans';
+  src: url('/fonts/GeneralSans-ExtralightItalic.woff2') format('woff2'),
+       url('/fonts/GeneralSans-ExtralightItalic.woff') format('woff'),
+       url('/fonts/GeneralSans-ExtralightItalic.ttf') format('truetype');
+  font-weight: 200;
+  font-display: swap;
+  font-style: italic;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-general-sans: 'General Sans', system-ui, sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
-  --font-mono: var(--font-inter);
+  --font-sans: var(--font-general-sans);
+  --font-mono: var(--font-general-sans);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,15 +150,93 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-general-sans), system-ui, sans-serif;
   scroll-behavior: smooth;
+}
+
+/* Mobile Performance Optimizations */
+@media (max-width: 768px) {
+  * {
+    /* Disable blur effects on mobile for better performance */
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  
+  /* Simplify animations on mobile */
+  .animate-pulse {
+    animation: none;
+  }
+  
+  /* Reduce complex transforms on mobile */
+  [class*="blur-"] {
+    filter: none !important;
+  }
+  
+  /* Disable hover effects on mobile */
+  *:hover {
+    transform: none !important;
+  }
+
+  /* Disable complex animations on mobile */
+  [data-framer-motion] {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Reduce motion complexity */
+  .motion-reduce {
+    animation-duration: 0.1s !important;
+    transition-duration: 0.1s !important;
+  }
+
+  /* Disable floating animations on mobile */
+  .animate-float,
+  .animate-float-delayed,
+  .animate-float-slow,
+  .animate-float-reverse,
+  .animate-float-fast {
+    animation: none !important;
+  }
+
+  /* Reduce shadow complexity */
+  [class*="shadow-"] {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  /* Disable complex transforms */
+  [class*="scale-"],
+  [class*="rotate-"],
+  [class*="skew-"] {
+    transform: none !important;
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .animate-pulse,
+  .animate-float,
+  .animate-float-delayed,
+  .animate-float-slow,
+  .animate-float-reverse,
+  .animate-float-fast {
+    animation: none !important;
+  }
 }
 
 /* Custom animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -41,7 +247,7 @@ body {
 @keyframes fadeInRight {
   from {
     opacity: 0;
-    transform: translateX(30px);
+    transform: translateX(20px);
   }
   to {
     opacity: 1;
@@ -52,7 +258,7 @@ body {
 @keyframes fadeInLeft {
   from {
     opacity: 0;
-    transform: translateX(-30px);
+    transform: translateX(-20px);
   }
   to {
     opacity: 1;
@@ -72,7 +278,7 @@ body {
 @keyframes scaleIn {
   from {
     opacity: 0;
-    transform: scale(0.95);
+    transform: scale(0.98);
   }
   to {
     opacity: 1;
@@ -83,7 +289,7 @@ body {
 @keyframes slideInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(15px);
   }
   to {
     opacity: 1;
@@ -91,54 +297,13 @@ body {
   }
 }
 
+/* Simplified float animations for better mobile performance */
 @keyframes float {
   0%, 100% {
-    transform: translateY(0px) translateX(0px);
-  }
-  25% {
-    transform: translateY(-20px) translateX(10px);
+    transform: translateY(0px);
   }
   50% {
-    transform: translateY(-10px) translateX(-10px);
-  }
-  75% {
-    transform: translateY(-30px) translateX(5px);
-  }
-}
-
-@keyframes floatReverse {
-  0%, 100% {
-    transform: translateY(0px) translateX(0px);
-  }
-  25% {
-    transform: translateY(20px) translateX(-10px);
-  }
-  50% {
-    transform: translateY(10px) translateX(10px);
-  }
-  75% {
-    transform: translateY(30px) translateX(-5px);
-  }
-}
-
-@keyframes floatSlow {
-  0%, 100% {
-    transform: translateY(0px) translateX(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-15px) translateX(15px) rotate(180deg);
-  }
-}
-
-@keyframes floatFast {
-  0%, 100% {
-    transform: translateY(0px) translateX(0px) scale(1);
-  }
-  33% {
-    transform: translateY(-10px) translateX(10px) scale(1.1);
-  }
-  66% {
-    transform: translateY(10px) translateX(-10px) scale(0.9);
+    transform: translateY(-10px);
   }
 }
 
@@ -147,7 +312,7 @@ body {
     opacity: 1;
   }
   50% {
-    opacity: 0.5;
+    opacity: 0.8;
   }
 }
 
@@ -178,37 +343,37 @@ body {
   }
 }
 
-/* Animation classes */
+/* Animation classes with performance optimizations */
 .animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.6s ease-out forwards;
 }
 
 .animate-fade-in-right {
-  animation: fadeInRight 0.8s ease-out 0.2s forwards;
+  animation: fadeInRight 0.6s ease-out 0.1s forwards;
 }
 
 .animate-fade-in-left {
-  animation: fadeInLeft 0.8s ease-out 0.4s forwards;
+  animation: fadeInLeft 0.6s ease-out 0.2s forwards;
 }
 
 .animate-fade-in-delayed {
-  animation: fadeIn 0.8s ease-out 0.3s forwards;
+  animation: fadeIn 0.6s ease-out 0.2s forwards;
 }
 
 .animate-fade-in-delayed-2 {
-  animation: fadeInUp 0.8s ease-out 0.6s forwards;
+  animation: fadeInUp 0.6s ease-out 0.4s forwards;
 }
 
 .animate-scale-in {
-  animation: scaleIn 0.8s ease-out forwards;
+  animation: scaleIn 0.6s ease-out forwards;
 }
 
 .animate-slide-in-up {
-  animation: slideInUp 0.6s ease-out forwards;
+  animation: slideInUp 0.5s ease-out forwards;
 }
 
 .animate-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 .animate-shimmer {
@@ -218,7 +383,7 @@ body {
 }
 
 .animate-typewriter {
-  animation: typewriter 3s steps(40, end) forwards;
+  animation: typewriter 2s steps(30, end) forwards;
   overflow: hidden;
   white-space: nowrap;
 }
@@ -227,22 +392,26 @@ body {
   animation: blink 1s infinite;
 }
 
-/* Hover effects */
+/* Optimized hover effects */
 .hover-lift {
-  transition: all 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.hover-lift:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+@media (min-width: 769px) {
+  .hover-lift:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
 }
 
 .hover-glow {
-  transition: all 0.3s ease;
+  transition: box-shadow 0.2s ease;
 }
 
-.hover-glow:hover {
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+@media (min-width: 769px) {
+  .hover-glow:hover {
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+  }
 }
 
 /* Stagger animations */
@@ -262,30 +431,22 @@ body {
   animation-delay: 0.4s;
 }
 
-/* Floating animations */
+/* Simplified floating animations */
 .animate-float {
-  animation: float 6s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite;
 }
 
 .animate-float-delayed {
-  animation: float 6s ease-in-out infinite 2s;
+  animation: float 4s ease-in-out infinite 1s;
 }
 
 .animate-float-slow {
-  animation: floatSlow 8s ease-in-out infinite;
-}
-
-.animate-float-reverse {
-  animation: floatReverse 5s ease-in-out infinite;
-}
-
-.animate-float-fast {
-  animation: floatFast 4s ease-in-out infinite;
+  animation: float 6s ease-in-out infinite;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -294,7 +455,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(to bottom, #10b981, #059669);
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -312,17 +473,27 @@ body {
   @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
 }
 
-/* Glass morphism */
+/* Glass morphism - simplified for mobile */
 .glass {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+@media (min-width: 769px) {
+  .glass {
+    backdrop-filter: blur(10px);
+  }
+}
+
 .glass-dark {
-  background: rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (min-width: 769px) {
+  .glass-dark {
+    backdrop-filter: blur(10px);
+  }
 }
 
 /* Gradient text */
@@ -333,33 +504,42 @@ body {
   background-clip: text;
 }
 
-/* Button animations */
+/* Optimized button animations */
 .btn-primary {
-  @apply relative overflow-hidden bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold px-6 py-3 rounded-2xl transition-all duration-300 hover:from-green-700 hover:to-emerald-700 hover:scale-105 hover:shadow-lg;
+  @apply relative overflow-hidden bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold px-6 py-3 rounded-2xl transition-all duration-200;
 }
 
-.btn-primary::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  transition: left 0.5s;
+@media (min-width: 769px) {
+  .btn-primary {
+    @apply hover:from-green-700 hover:to-emerald-700 hover:scale-105 hover:shadow-lg;
+  }
+  
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.3s ease;
+  }
+
+  .btn-primary:hover::before {
+    left: 100%;
+  }
 }
 
-.btn-primary:hover::before {
-  left: 100%;
-}
-
-/* Card hover effects */
+/* Card hover effects - desktop only */
 .card-hover {
-  @apply transition-all duration-300 hover:scale-105 hover:shadow-xl;
+  @apply transition-all duration-200;
 }
 
-.card-hover:hover {
-  transform: translateY(-8px) scale(1.02);
+@media (min-width: 769px) {
+  .card-hover:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  }
 }
 
 /* Text animations */
@@ -369,9 +549,9 @@ body {
 
 .text-reveal span {
   display: inline-block;
-  animation: slideInUp 0.6s ease-out forwards;
+  animation: slideInUp 0.5s ease-out forwards;
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(20px);
 }
 
 /* Loading animations */
@@ -418,3 +598,4 @@ body {
     display: none !important;
   }
 }
+

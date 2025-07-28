@@ -1,25 +1,79 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Manrope } from "next/font/google";
 import "./globals.css";
-import Head from "next/head";
 
-const inter = Inter({
-  variable: "--font-inter",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
+  display: 'swap',
+  preload: true,
 });
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  viewportFit: 'cover'
+};
+
 export const metadata: Metadata = {
-  title: "Clickbait - Web dizajn Sarajevo | Moderne web stranice BiH | SEO agencija",
-  description: "Web dizajn Sarajevo i BiH - Izrada modernih, responzivnih web stranica i SEO optimizacija za bolje Google pozicije. Kontaktirajte nas za besplatnu konsultaciju!",
-  keywords: "web dizajn, web dizajn Sarajevo, web stranice BiH, izrada web stranica, SEO optimizacija, digitalni marketing, Bosna i Hercegovina, web agencija, web development",
-  authors: [{ name: "Clickbait Agency" }],
+  metadataBase: new URL('https://clickbait.ba'),
+  title: "Clickbait - Moderne Web Stranice | Profesionalni Web Development",
+  description: "Specijalizovani smo za kreiranje modernih, responzivnih web stranica. SEO optimizacija, branding i dizajn koji donosi rezultate. Zatraži besplatnu konsultaciju.",
+  keywords: "web stranice, web development, SEO optimizacija, responzivni dizajn, branding, Sarajevo, Bosna i Hercegovina",
+  authors: [{ name: "Clickbait" }],
   creator: "Clickbait",
   publisher: "Clickbait",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
+  openGraph: {
+    type: 'website',
+    locale: 'bs_BA',
+    url: 'https://clickbait.ba',
+    siteName: 'Clickbait',
+    title: 'Clickbait - Moderne Web Stranice',
+    description: 'Kreiranje modernih web stranica koji donose rezultate',
+    images: [
+      {
+        url: '/images/cover.png',
+        width: 1200,
+        height: 630,
+        alt: 'Clickbait - Web Development',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Clickbait - Moderne Web Stranice',
+    description: 'Kreiranje modernih web stranica koji donose rezultate',
+    images: ['/images/cover.png'],
+  },
+  icons: {
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      {
+        rel: 'mask-icon',
+        url: '/safari-pinned-tab.svg',
+      },
+    ],
+  },
+  manifest: '/site.webmanifest',
 };
 
 export default function RootLayout({
@@ -28,53 +82,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="bs">
-      <Head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="robots" content="index, follow" />
-        <meta property="og:type" content="website" />
-        <meta property="og:locale" content="bs_BA" />
-        <meta property="og:title" content="Clickbait - Web dizajn Sarajevo | Moderne web stranice BiH | SEO agencija" />
-        <meta property="og:description" content="Web dizajn Sarajevo i BiH - Izrada modernih, responzivnih web stranica i SEO optimizacija za bolje Google pozicije. Kontaktirajte nas za besplatnu konsultaciju!" />
-        <meta property="og:url" content="https://www.clickbait.ba/" />
-        <meta property="og:site_name" content="Clickbait" />
-        <meta property="og:image" content="/images/cover.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Clickbait - Web dizajn Sarajevo | Moderne web stranice BiH | SEO agencija" />
-        <meta name="twitter:description" content="Web dizajn Sarajevo i BiH - Izrada modernih, responzivnih web stranica i SEO optimizacija za bolje Google pozicije. Kontaktirajte nas za besplatnu konsultaciju!" />
-        <meta name="twitter:image" content="/images/cover.png" />
-        <link rel="canonical" href="https://www.clickbait.ba/" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="manifest" href="/manifest.json" />
-        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" as="style" />
-        {/* LocalBusiness Schema.org JSON-LD */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'LocalBusiness',
-            name: 'Clickbait',
-            image: 'https://www.clickbait.ba/images/logo.png',
-            url: 'https://www.clickbait.ba/',
-            telephone: '+38761496745',
-            address: {
-              '@type': 'PostalAddress',
-              streetAddress: 'Sarajevo',
-              addressLocality: 'Sarajevo',
-              addressRegion: 'FBiH',
-              postalCode: '71000',
-              addressCountry: 'BA',
-            },
-            description: 'Web dizajn Sarajevo i BiH - Izrada modernih, responzivnih web stranica i SEO optimizacija za bolje Google pozicije.',
-            areaServed: ['Bosna i Hercegovina', 'Sarajevo', 'Balkan'],
-            sameAs: [
-              'https://www.facebook.com/clickbait.ba',
-              'https://www.instagram.com/clickbait.ba',
-            ],
-          })
-        }} />
-      </Head>
-      <body className={`${inter.variable} antialiased font-inter`}>
+    <html lang="bs" className="scroll-smooth">
+      <head>
+        <meta name="theme-color" content="#0B3C41" />
+        <meta name="msapplication-TileColor" content="#0B3C41" />
+        <meta name="format-detection" content="telephone=no" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+      </head>
+      <body
+        className={`${manrope.variable} antialiased font-sans`}
+        suppressHydrationWarning={true}
+      >
         {children}
       </body>
     </html>
