@@ -105,7 +105,7 @@ export default function BlogPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="flex flex-wrap justify-center gap-3"
             >
-              {['#SEO', '#WebDevelopment', '#Marketing', '#UX', '#DigitalMarketing'].map((tag, index) => (
+              {['#SEO', '#WebDevelopment', '#Marketing', '#UX', '#DigitalMarketing'].map((tag) => (
                 <span 
                   key={tag}
                   className="bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium text-gray-700 border border-gray-200/50 hover:bg-white hover:border-[#0C363C] hover:text-[#0C363C] transition-all duration-300 cursor-pointer"
