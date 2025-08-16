@@ -25,7 +25,7 @@ export function FeatureCard({ icon: Icon, title, description, delay, color }: Fe
       </div>
       
       <div className="flex-1">
-        <h3 className="text-lg lg:text-xl font-semibold text-gray-900 mb-1 lg:mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#0B3C41] group-hover:to-[#00BE57] group-hover:bg-clip-text transition-all duration-200">
+        <h3 className="text-lg lg:text-xl font-semibold text-gray-900 mb-1 lg:mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#0B3C41] group-hover:to-[#00BE57] group-hover:bg-clip-text transition-all duration-200 font-serif">
           {title}
         </h3>
         <p className="text-sm lg:text-base text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-200">

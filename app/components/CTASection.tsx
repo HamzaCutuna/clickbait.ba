@@ -15,7 +15,7 @@ export function CTASection() {
           viewport={{ once: true, margin: "-100px" }}
           className="space-y-8 motion-reduce"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-serif">
             Spremni ste za{" "}
             <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
               digitalni uspjeh?

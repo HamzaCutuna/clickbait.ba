@@ -1,13 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Manrope } from "next/font/google";
 import "./globals.css";
-
-const manrope = Manrope({
-  variable: "--font-manrope",
-  subsets: ["latin"],
-  display: 'swap',
-  preload: true,
-});
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -87,12 +79,10 @@ export default function RootLayout({
         <meta name="theme-color" content="#0B3C41" />
         <meta name="msapplication-TileColor" content="#0B3C41" />
         <meta name="format-detection" content="telephone=no" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
       </head>
       <body
-        className={`${manrope.variable} antialiased font-sans`}
+        className="antialiased font-sans"
         suppressHydrationWarning={true}
       >
         {children}

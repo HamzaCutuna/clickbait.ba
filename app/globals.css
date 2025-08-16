@@ -1,128 +1,227 @@
 @import "tailwindcss";
 
+/* Mulish Font Family */
 @font-face {
-  font-family: 'General Sans';
-  src: url('/fonts/GeneralSans-Variable.woff2') format('woff2'),
-       url('/fonts/GeneralSans-Variable.woff') format('woff'),
-       url('/fonts/GeneralSans-Variable.ttf') format('truetype');
-  font-weight: 200 700;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'General Sans';
-  src: url('/fonts/GeneralSans-VariableItalic.woff2') format('woff2'),
-       url('/fonts/GeneralSans-VariableItalic.woff') format('woff'),
-       url('/fonts/GeneralSans-VariableItalic.ttf') format('truetype');
-  font-weight: 200 700;
-  font-display: swap;
-  font-style: italic;
-}
-@font-face {
-  font-family: 'General Sans';
-  src: url('/fonts/GeneralSans-Regular.woff2') format('woff2'),
-       url('/fonts/GeneralSans-Regular.woff') format('woff'),
-       url('/fonts/GeneralSans-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'General Sans';
-  src: url('/fonts/GeneralSans-Italic.woff2') format('woff2'),
-       url('/fonts/GeneralSans-Italic.woff') format('woff'),
-       url('/fonts/GeneralSans-Italic.ttf') format('truetype');
-  font-weight: 400;
-  font-display: swap;
-  font-style: italic;
-}
-@font-face {
-  font-family: 'General Sans';
-  src: url('/fonts/GeneralSans-Medium.woff2') format('woff2'),
-       url('/fonts/GeneralSans-Medium.woff') format('woff'),
-       url('/fonts/GeneralSans-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'General Sans';
-  src: url('/fonts/GeneralSans-MediumItalic.woff2') format('woff2'),
-       url('/fonts/GeneralSans-MediumItalic.woff') format('woff'),
-       url('/fonts/GeneralSans-MediumItalic.ttf') format('truetype');
-  font-weight: 500;
-  font-display: swap;
-  font-style: italic;
-}
-@font-face {
-  font-family: 'General Sans';
-  src: url('/fonts/GeneralSans-Semibold.woff2') format('woff2'),
-       url('/fonts/GeneralSans-Semibold.woff') format('woff'),
-       url('/fonts/GeneralSans-Semibold.ttf') format('truetype');
-  font-weight: 600;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'General Sans';
-  src: url('/fonts/GeneralSans-SemiboldItalic.woff2') format('woff2'),
-       url('/fonts/GeneralSans-SemiboldItalic.woff') format('woff'),
-       url('/fonts/GeneralSans-SemiboldItalic.ttf') format('truetype');
-  font-weight: 600;
-  font-display: swap;
-  font-style: italic;
-}
-@font-face {
-  font-family: 'General Sans';
-  src: url('/fonts/GeneralSans-Bold.woff2') format('woff2'),
-       url('/fonts/GeneralSans-Bold.woff') format('woff'),
-       url('/fonts/GeneralSans-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'General Sans';
-  src: url('/fonts/GeneralSans-BoldItalic.woff2') format('woff2'),
-       url('/fonts/GeneralSans-BoldItalic.woff') format('woff'),
-       url('/fonts/GeneralSans-BoldItalic.ttf') format('truetype');
-  font-weight: 700;
-  font-display: swap;
-  font-style: italic;
-}
-@font-face {
-  font-family: 'General Sans';
-  src: url('/fonts/GeneralSans-Light.woff2') format('woff2'),
-       url('/fonts/GeneralSans-Light.woff') format('woff'),
-       url('/fonts/GeneralSans-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'General Sans';
-  src: url('/fonts/GeneralSans-LightItalic.woff2') format('woff2'),
-       url('/fonts/GeneralSans-LightItalic.woff') format('woff'),
-       url('/fonts/GeneralSans-LightItalic.ttf') format('truetype');
-  font-weight: 300;
-  font-display: swap;
-  font-style: italic;
-}
-@font-face {
-  font-family: 'General Sans';
-  src: url('/fonts/GeneralSans-Extralight.woff2') format('woff2'),
-       url('/fonts/GeneralSans-Extralight.woff') format('woff'),
-       url('/fonts/GeneralSans-Extralight.ttf') format('truetype');
+  font-family: 'Mulish';
+  src: url('/fonts/Mulish-ExtraLight.ttf') format('truetype');
   font-weight: 200;
   font-display: swap;
   font-style: normal;
 }
+
 @font-face {
-  font-family: 'General Sans';
-  src: url('/fonts/GeneralSans-ExtralightItalic.woff2') format('woff2'),
-       url('/fonts/GeneralSans-ExtralightItalic.woff') format('woff'),
-       url('/fonts/GeneralSans-ExtralightItalic.ttf') format('truetype');
+  font-family: 'Mulish';
+  src: url('/fonts/Mulish-ExtraLightItalic.ttf') format('truetype');
   font-weight: 200;
+  font-display: swap;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Mulish';
+  src: url('/fonts/Mulish-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mulish';
+  src: url('/fonts/Mulish-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Mulish';
+  src: url('/fonts/Mulish-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mulish';
+  src: url('/fonts/Mulish-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Mulish';
+  src: url('/fonts/Mulish-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mulish';
+  src: url('/fonts/Mulish-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Mulish';
+  src: url('/fonts/Mulish-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mulish';
+  src: url('/fonts/Mulish-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Mulish';
+  src: url('/fonts/Mulish-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mulish';
+  src: url('/fonts/Mulish-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Mulish';
+  src: url('/fonts/Mulish-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mulish';
+  src: url('/fonts/Mulish-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: 800;
+  font-display: swap;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Mulish';
+  src: url('/fonts/Mulish-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mulish';
+  src: url('/fonts/Mulish-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-display: swap;
+  font-style: italic;
+}
+
+/* Playfair Display Font Family */
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/fonts/PlayfairDisplay-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/fonts/PlayfairDisplay-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/fonts/PlayfairDisplay-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/fonts/PlayfairDisplay-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/fonts/PlayfairDisplay-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/fonts/PlayfairDisplay-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/fonts/PlayfairDisplay-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/fonts/PlayfairDisplay-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/fonts/PlayfairDisplay-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/fonts/PlayfairDisplay-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: 800;
+  font-display: swap;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/fonts/PlayfairDisplay-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/fonts/PlayfairDisplay-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
   font-display: swap;
   font-style: italic;
 }
@@ -130,14 +229,16 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --font-general-sans: 'General Sans', system-ui, sans-serif;
+  --font-mulish: 'Mulish', system-ui, sans-serif;
+  --font-playfair: 'Playfair Display', serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-general-sans);
-  --font-mono: var(--font-general-sans);
+  --font-sans: var(--font-mulish);
+  --font-serif: var(--font-playfair);
+  --font-mono: var(--font-mulish);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -150,7 +251,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-general-sans), system-ui, sans-serif;
+  font-family: var(--font-mulish), system-ui, sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -597,5 +698,111 @@ body {
   .no-print {
     display: none !important;
   }
+}
+
+/* Font utility classes */
+.font-mulish {
+  font-family: var(--font-mulish);
+}
+
+.font-playfair {
+  font-family: var(--font-playfair);
+}
+
+/* Typography improvements for better font contrast */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-playfair);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 {
+  font-weight: 900;
+}
+
+h2 {
+  font-weight: 800;
+}
+
+h3 {
+  font-weight: 700;
+}
+
+/* Make serif fonts more prominent */
+.font-serif {
+  font-family: var(--font-playfair) !important;
+  font-weight: 700;
+}
+
+/* Font weight utilities for Mulish */
+.font-mulish-extralight {
+  font-family: var(--font-mulish);
+  font-weight: 200;
+}
+
+.font-mulish-light {
+  font-family: var(--font-mulish);
+  font-weight: 300;
+}
+
+.font-mulish-regular {
+  font-family: var(--font-mulish);
+  font-weight: 400;
+}
+
+.font-mulish-medium {
+  font-family: var(--font-mulish);
+  font-weight: 500;
+}
+
+.font-mulish-semibold {
+  font-family: var(--font-mulish);
+  font-weight: 600;
+}
+
+.font-mulish-bold {
+  font-family: var(--font-mulish);
+  font-weight: 700;
+}
+
+.font-mulish-extrabold {
+  font-family: var(--font-mulish);
+  font-weight: 800;
+}
+
+.font-mulish-black {
+  font-family: var(--font-mulish);
+  font-weight: 900;
+}
+
+/* Font weight utilities for Playfair Display */
+.font-playfair-regular {
+  font-family: var(--font-playfair);
+  font-weight: 400;
+}
+
+.font-playfair-medium {
+  font-family: var(--font-playfair);
+  font-weight: 500;
+}
+
+.font-playfair-semibold {
+  font-family: var(--font-playfair);
+  font-weight: 600;
+}
+
+.font-playfair-bold {
+  font-family: var(--font-playfair);
+  font-weight: 700;
+}
+
+.font-playfair-extrabold {
+  font-family: var(--font-playfair);
+  font-weight: 800;
+}
+
+.font-playfair-black {
+  font-family: var(--font-playfair);
+  font-weight: 900;
 }
 

@@ -55,7 +55,7 @@ export default function Home() {
               className="space-y-6 lg:space-y-8 motion-reduce"
             >
               <div className="space-y-4 lg:space-y-6">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight font-serif">
                   Gradimo moderne{" "}
                   <span className="relative">
                     <span className="bg-gradient-to-r from-[#0B3C41] to-[#00BE57] bg-clip-text text-transparent">
@@ -246,7 +246,7 @@ export default function Home() {
             viewport={{ once: true, margin: "-100px" }}
             className="text-center mb-12 lg:mb-16 motion-reduce"
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 lg:mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 lg:mb-6 font-serif">
               Naše{" "}
               <span className="bg-gradient-to-r from-[#0B3C41] to-[#00BE57] bg-clip-text text-transparent">
                 usluge
@@ -308,7 +308,7 @@ export default function Home() {
               className="space-y-6 lg:space-y-8 motion-reduce"
             >
               <div>
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 lg:mb-6">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 lg:mb-6 font-serif">
                   Zašto baš{" "}
                   <span className="bg-gradient-to-r from-[#0B3C41] to-[#00BE57] bg-clip-text text-transparent">
                     Clickbait?
@@ -419,7 +419,7 @@ export default function Home() {
             viewport={{ once: true, margin: "-100px" }}
             className="text-center mb-12 lg:mb-16 motion-reduce"
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 lg:mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 lg:mb-6 font-serif">
               Naši najnoviji{" "}
               <span className="bg-gradient-to-r from-[#0B3C41] to-[#00BE57] bg-clip-text text-transparent">
                 radovi
